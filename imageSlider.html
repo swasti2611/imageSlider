@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+       img{
+            width: 50%;
+            height: 400px;  
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 5px;
+            margin-top: 5%;
+        }
+
+        #btn-start{
+            width: 190px;
+            height: 40px;
+            border-radius: 25px;
+            font-size: 25px;
+            background-color: #555555;
+            cursor: pointer;margin-left: 35%;
+            margin-top: 1%;
+
+        }
+        #btn-stop{
+            width: 190px;
+            height: 40px;
+            border-radius: 25px;
+            font-size: 25px;
+            background-color: #555555;
+            cursor: pointer;
+            margin-left: 40px;
+            
+        }
+       
+        
+    </style>
+</head>
+<body>
+    
+    <div>
+       
+         <img  src="/ImageSlider using setInterval/slide-images/setImage.jpg " alt="" id="srcimg">
+
+    </div>
+
+  <div>
+          <button id="btn-start" class="btn">Start</button>
+           <button id="btn-stop" class="btn" >Stop</button>
+   
+  </div>
+
+    <script>
+
+   let imageArray=["/ImageSlider using setInterval/slide-images/marigold.jfif ",
+   "/ImageSlider using setInterval/slide-images/flower4.jfif ",
+   "/ImageSlider using setInterval/slide-images/flower5.jpg ",
+   "/ImageSlider using setInterval/slide-images/flower6.avif ",
+   "/ImageSlider using setInterval/slide-images/images.jfif ",]
+
+   
+  
+    
+     let  intervalHandler
+   const btn_start=document.querySelector("#btn-start")
+
+    btn_start.addEventListener('click',()=>{
+    
+             let imageCounter=0;
+
+            let imageElement=document.getElementById("srcimg");
+
+      let slideshow=function changeImage(){
+
+	             imageElement.setAttribute("src",imageArray[imageCounter]);
+   
+	            imageCounter++;
+	        if (imageCounter>=imageArray.length){
+		           imageCounter=0;
+	          }
+      }
+
+          intervalHandler=setInterval(slideshow, 1000)
+
+});
+
+const btn_stop=document.querySelector("#btn-stop")
+
+    btn_stop.addEventListener('click',()=>{
+    
+    clearInterval(intervalHandler)
+
+    });
+
+
+
+
+
+    </script>
+</body>
+</html>
